@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import "./md.css";
 import "./androidstudio.min.css";
-export default class extends Component {
+export default class MarkDown_It extends Component {
     constructor() {
         super();
         var hljs = require('highlight.js');

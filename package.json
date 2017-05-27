@@ -1,5 +1,5 @@
 {
-  "name": "react-blog",
+  "name": "react-web",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -13,11 +13,13 @@
     "markdown-it-sup": "^1.0.0",
     "markdown-it-sub": "^1.0.0",
     "markdown-it-imsize": "^2.0.1",
-
+    "react-router": "^2.7.0"
 
   },
   "devDependencies": {
-    "react-scripts": "1.0.6"
+    "react-scripts": "1.0.6",
+    "css-loader": "^0.21.0",
+    "style-loader": "^0.13.0"
   },
   "scripts": {
     "start": "react-scripts start",
