@@ -30,12 +30,72 @@
                 }
             });
 
+            parse(md);
 
             var html = md.render(document.getElementById('md').innerText);
             document.getElementById('preview').innerHTML = html;
 
         }
 
+        function parse(md) {
+//            md.inline.ruler.push("strike-through", function (w, w2, w3) {
+//                console.log(w.src);
+//                console.log('-------------\n')
+//            }, {strokesCount: 2});
+
+//            md.renderer.rules.push("strike-through", function (tokens, idx, options, env) {
+//                console.log('render:')
+//            });
+
+        }
+
+        function prettify(md) {
+            var render = md.render;
+            md.render = function (str, options) {
+                str = expand(str, options);
+                str = str.split(/\]\[\]\s*\n\s*\[/).join('][]\n\n[');
+                return render.call(md, str, options);
+            };
+
+            md.renderer.renderInline = function (tokens, options, env) {
+                var _rules = rules;
+                var len = tokens.length, i = 0;
+                var str = '';
+
+                while (len--) {
+                    str += _rules[tokens[i].type](tokens, i++, options, env, this);
+                }
+                return str;
+            };
+
+            md.renderer.render = function (tokens, options, env) {
+                var _rules = rules;
+                var len = tokens.length, i = -1;
+                var str = '';
+
+                while (++i < len) {
+                    if (tokens[i].type === 'inline') {
+                        str += this.renderInline(tokens[i].children, options, env);
+                    } else {
+                        str += _rules[tokens[i].type](tokens, i, options, env, this);
+                    }
+                }
+
+                if (options.condense !== false) {
+                    str = str.split(/(?:\r\n|\n){2,}/).join('\n\n');
+                }
+
+                var newline = '\n';
+                if (options.newline === false) {
+                    newline = '';
+                }
+                if (typeof options.newline === 'string') {
+                    newline = options.newline;
+                }
+                str = str.trim() + newline;
+                return str;
+            };
+        }
     </script>
     <style>
 
@@ -46,22 +106,18 @@
 <div id="preview"/>
 
 
-
-
-
 <pre id="md">
 
 # 欢迎使用马克飞象
-
 @(示例笔记本)[马克飞象|帮助|Markdown]
 ```java
 
 public class Main{
 
-public void main(String[]args){
-System.out.println("hello");
-return 0;
-}
+    public void main(String[]args){
+        System.out.println("hello");
+        return 0;
+    }
 }
 ```
 

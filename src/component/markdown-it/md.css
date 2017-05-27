@@ -1,0 +1,14 @@
+.md {
+    text-align: left;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+.edit{
+    width: 50%;
+    height: 100%;
+    border-color: grey;
+    margin: 10px;
+}
