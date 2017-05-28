@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import "./md.css";
 import "./androidstudio.min.css";
+import $ from "jquery";
 export default class MarkDown_It extends Component {
     constructor() {
         super();
@@ -28,25 +29,25 @@ export default class MarkDown_It extends Component {
                 .use(require('markdown-it-sup'))
                 .use(require('markdown-it-sub'))
                 .use(require('markdown-it-imsize'))
-                // .use(require('markdown-it-katex'))
-                // .use(require('markdown-it-math'), {
-                //     inlineOpen: '\\(',
-                //     inlineClose: '\\)',
-                //     blockOpen: '\\[',
-                //     blockClose: '\\]'
-                // })
+            // .use(require('markdown-it-katex'))
+            // .use(require('markdown-it-math'), {
+            //     inlineOpen: '\\(',
+            //     inlineClose: '\\)',
+            //     blockOpen: '\\[',
+            //     blockClose: '\\]'
+            // })
 
         ;
 
         // var remarkable = require('markdown-it')('commonmark');
 
-        let txt=this.getTxt();
-        let result =  remarkable.render(txt);
+        let txt = this.getTxt();
+        let result = remarkable.render(txt);
 
 
         this.state = {
             remarkable: remarkable,
-            txt:txt,
+            txt: txt,
             md: {__html: result},
         };
 
@@ -58,8 +59,8 @@ export default class MarkDown_It extends Component {
         return (
             <div className='md'>
                 <textarea className="edit" value={this.state.txt} onChange={this.onTextChange.bind(this)}></textarea>
-
-                <div className="edit" dangerouslySetInnerHTML={this.state.md}></div>
+                <div className="divider"></div>
+                <div className="preview" dangerouslySetInnerHTML={this.state.md}></div>
 
             </div>
         );
@@ -71,11 +72,20 @@ export default class MarkDown_It extends Component {
 
         this.setState({
             md: {__html: result},
-            txt:txt
+            txt: txt
         });
 
     }
-    getTxt(){
+
+    componentDidMount() {
+        // $('.divider').draggable({axis: "x"});
+        $('.divider').css({
+            width:10
+        })
+
+    }
+
+    getTxt() {
         return `# 欢迎使用MarkDown-It
 @(示例笔记本)[MarkDown-It|帮助|Markdown]
 
