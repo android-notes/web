@@ -1,0 +1,7 @@
+.function-panel{
+
+    width: 15%;
+    height: 100%;
+    background-color: white;
+    overflow: auto;
+}

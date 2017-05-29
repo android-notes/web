@@ -1,29 +1,38 @@
 .md {
-    text-align: left;
-    padding: 20px;
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: auto;
     height: 100%;
+    overflow: auto;
 }
-.edit{
+
+.edit {
+    outline: none;
+    font-size: 14px;
+}
+
+.edit-container  {
     width: 50%;
     height: 100%;
-    padding: 5px 10px;
-    border-color: grey;
+    padding: 5px 35px 50% 35px;
+    overflow: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    word-break: normal;
+    color: #EBD1B7;
+    background: #36312c;
+
 }
-.preview{
+
+.preview {
     width: 100%;
     height: 100%;
-    padding: 5px 10px;
+    padding: 5px 35px 50% 35px;
     overflow: auto;
     background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 4px;
 }
-.divider{
-    width: 20px;
+
+.divider {
+    width: 0px;
     height: 100%;
-    background: green;
-    cursor: move;
 }

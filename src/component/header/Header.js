@@ -7,7 +7,7 @@ export default class Header extends Component {
     render() {
         return (
             <div className="header">
-                <h1>Android笔记</h1>
+                <h1>🇨🇭军刀</h1>
             </div>
         );
     }
