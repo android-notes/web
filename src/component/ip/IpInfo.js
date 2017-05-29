@@ -42,7 +42,7 @@ export default class IpInfo extends Component {
 
         });
 
-        fetch('http://localhost:8899?' + encodeURIComponent(params), {
+        fetch('http://localhost:8899/3.php?' + encodeURIComponent(params), {
             method: 'GET',
             mode: 'cors',
             credentials: 'include',
