@@ -3,6 +3,7 @@
  */
 import React, {Component} from "react";
 import Button from "../button/Button";
+import {HOST} from "../common/Const";
 import "./style.css";
 export default class IpInfo extends Component {
     constructor() {
@@ -29,20 +30,18 @@ export default class IpInfo extends Component {
     }
 
     onQuery() {
-        //http://freeapi.ipip.net/?ip=118.28.8.8
-        // https://tieba.baidu.com/f?kw=%E5%9B%B4%E6%A3%8B
         let params = JSON.stringify({
-            url: "https://dm-81.data.aliyun.com/rest/160601/ip/getIpInfo.json",
+            url: "http://saip.market.alicloudapi.com/ip",
             params: {
-                ip: "210.75.225.254"
+                ip: this.state.ip
             },
             headers: {
                 Authorization: "APPCODE 28fd65e9aacc4a9eacfbc90f76ea1660"
             }
 
         });
-
-        fetch('http://localhost:8899/3.php?' + encodeURIComponent(params), {
+        let that=this;
+        fetch(HOST + encodeURIComponent(params), {
             method: 'GET',
             mode: 'cors',
             credentials: 'include',
@@ -51,6 +50,10 @@ export default class IpInfo extends Component {
             if (res.ok) {
                 res.json().then(function (data) {
                     console.log(data);
+                    that.setState({
+                        info: data.showapi_res_body
+                    })
+                    ;
                 });
             } else {
                 console.log("Looks like the response wasn't perfect, got status", res.status);
@@ -59,19 +62,6 @@ export default class IpInfo extends Component {
             console.log("Fetch failed!", e);
         });
 
-        // $.ajax({
-        //     method: 'jsonp',
-        //     headers:{
-        //         'Access-Control-Allow-Origin':'*'
-        //     },
-        //     url: 'http://freeapi.ipip.net/?ip=' + this.state.ip,
-        //     success: function (data) {
-        //         console.log(data)
-        //     },
-        //     error(err){
-        //         console.log(err)
-        //     }
-        // })
 
     }
 }
