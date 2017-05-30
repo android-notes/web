@@ -8,7 +8,7 @@ export default class MessPanel extends Component {
     render() {
         return (
             <div className="mess-panel">
-                <h1>Mess</h1>
+                <h1> </h1>
             </div>
         );
     }

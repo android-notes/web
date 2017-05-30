@@ -2,8 +2,9 @@
  * Created by wanjian on 2017/5/28.
  */
 import React, {Component} from "react";
-import Button from "../button/Button";
+
 import {HOST} from "../common/Const";
+import InputConfirm from "../input-confirm/InputConfirm";
 import "./style.css";
 export default class IpInfo extends Component {
     constructor() {
@@ -15,18 +16,43 @@ export default class IpInfo extends Component {
 
     render() {
         return (
-            <div className="ip-info">
+            <div className="info">
                 <h2>IP地址查询</h2>
-                <div className="h">
-                    <input placeholder="请输入IP地址" className="ip-input" onChange={this.onInput.bind(this)}/><Button
-                    title="查询" onClick={this.onQuery.bind(this)}/>
-                </div>
+                <InputConfirm placeholder="请输入IP地址" title="查询" onChange={this.onInput.bind(this)} onClick={this.onQuery.bind(this)} onKeyDown={this.onKeyEvent.bind(this)}/>
+                {
+                    this.state.info ? <div>
+                        <table className="info-tab">
+                            <tr>
+                                <td>国家</td>
+                                <td>{this.state.info.country}</td>
+                            </tr>
+                            <tr>
+                                <td>省份</td>
+                                <td>{this.state.info.region}</td>
+                            </tr>
+                            <tr>
+                                <td>城市</td>
+                                <td>{this.state.info.city}</td>
+                            </tr>
+                            <tr>
+                                <td>服务提供商</td>
+                                <td>{this.state.info.isp}</td>
+                            </tr>
+
+                        </table>
+                    </div> : null
+                }
             </div>
         );
     }
 
     onInput(event) {
         this.state.ip = event.target.value;
+    }
+    onKeyEvent(event) {
+        if (event.key == 'Enter' || event.keyCode == 13) {
+            this.onQuery();
+        }
     }
 
     onQuery() {
@@ -40,7 +66,7 @@ export default class IpInfo extends Component {
             }
 
         });
-        let that=this;
+        let that = this;
         fetch(HOST + encodeURIComponent(params), {
             method: 'GET',
             mode: 'cors',

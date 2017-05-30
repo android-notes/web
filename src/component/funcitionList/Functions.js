@@ -10,6 +10,9 @@ export default class Functions extends Component {
             <div className="function-panel">
                 <FunctionItem title="MarkDown" link="#/markdown"/>
                 <FunctionItem title="IP归属地" link="#/ip"/>
+                <FunctionItem title="手机号归属地" link="#/phone-num"/>
+                <FunctionItem title="天气查询" link="#/weather"/>
+                <FunctionItem title="二维码" link="#/qrcode"/>
             </div>
         );
     }
