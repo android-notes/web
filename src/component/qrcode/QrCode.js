@@ -22,7 +22,7 @@ export default class QrCode extends Component {
                 <InputConfirm placeholder="请输入信息" title="生成" onChange={this.onInput.bind(this)}
                               onClick={this.onQuery.bind(this)} onKeyDown={this.onKeyEvent.bind(this)}/>
                 {
-                    this.state.img?<img src={'http://bxu2713340384.my3w.com/'+this.state.img} onLoad={this.loadFinished.bind(this)}></img>:null
+                    this.state.img?<img src={'http://xn--jrxa.xyz/'+this.state.img} onLoad={this.loadFinished.bind(this)}></img>:null
                 }
             </div>
         );
@@ -40,7 +40,7 @@ export default class QrCode extends Component {
 
     loadFinished(){
         console.log('加载完成');
-        fetch('http://bxu2713340384.my3w.com' + '/loaded.php?file='+this.state.img, {
+        fetch( '/loaded.php?file='+this.state.img, {
             method: 'GET',
             mode: 'cors',
             credentials: 'include',
@@ -58,7 +58,7 @@ export default class QrCode extends Component {
     onQuery() {
 
         let that = this;
-        fetch('http://bxu2713340384.my3w.com' + '/qrcode.php?data='+this.state.info, {
+        fetch('/qrcode.php?data='+this.state.info, {
             method: 'GET',
             mode: 'cors',
             credentials: 'include',
