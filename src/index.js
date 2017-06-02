@@ -15,7 +15,7 @@ const router = (
     <Router>
         <Route path="/" component={App}>
             <IndexRoute component={Home}/>
-            <Route path="markdown" component={MarkDown_It}/>
+            {/*<Route path="markdown" component={MarkDown_It}/>*/}
             <Route path="ip" component={IpInfo}/>
             <Route path="phone-num" component={PhoneNum}/>
             <Route path="weather" component={Weather}/>

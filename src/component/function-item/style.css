@@ -13,3 +13,16 @@
     margin-top: -1px;
     margin-right: -1px;
 }
+
+ a {
+    -webkit-transition: background-color ease-in-out .15s, color ease-in-out .15s, border-color ease-in-out .15s;
+    transition: background-color ease-in-out .15s, color ease-in-out .15s, border-color ease-in-out .15s;
+    color: #1980e6;
+    text-decoration: none;
+    background: rgba(0, 0, 0, 0);
+}
+
+ a:hover, a:focus {
+    color: #0f4d8a;
+    text-decoration: underline;
+}

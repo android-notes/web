@@ -60,7 +60,7 @@ export default class PhoneNum extends Component {
         this.state.phone = event.target.value;
     }
     onKeyEvent(event) {
-        if (event.key == 'Enter' || event.keyCode == 13) {
+        if (event.key === 'Enter' || event.keyCode === 13) {
             this.onQuery();
         }
     }

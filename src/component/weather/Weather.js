@@ -86,7 +86,7 @@ export default class Weather extends Component {
     }
 
     onKeyEvent(event) {
-        if (event.key == 'Enter' || event.keyCode == 13) {
+        if (event.key === 'Enter' || event.keyCode === 13) {
             this.onQuery();
         }
     }
