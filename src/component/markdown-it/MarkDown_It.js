@@ -31,6 +31,7 @@ export default class MarkDown_It extends Component {
                 .use(require('markdown-it-sub'))
                 .use(require('markdown-it-imsize'))
                 .use(require('./math'))
+                // .use(require('markdown-it-footnote'))
         ;
         // .use(require('markdown-it-mathjax'))
         // .use(require('markdown-it-katex'))
@@ -80,7 +81,8 @@ export default class MarkDown_It extends Component {
 
                 {/*<ConfirmDialog  visible="false" title='提示' msg="建议勾选"/>*/}
                 <div className="edit-container">
-                    <div contentEditable='plaintext-only' className="edit" onInput={this.onTextChange.bind(this)}>{this.state.txt}</div>
+                    <div contentEditable='plaintext-only' className="edit"
+                         onInput={this.onTextChange.bind(this)}>{this.state.txt}</div>
                 </div>
                 <div className="divider"></div>
                 <div className="preview-container">
