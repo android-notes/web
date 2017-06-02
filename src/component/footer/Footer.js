@@ -7,7 +7,7 @@ export default class Footer extends Component {
     render() {
         return (
             <div className="footer">
-                <div className="footer-divider"/>
+
                 <div >
                     @瑞士军刀
                 </div>
