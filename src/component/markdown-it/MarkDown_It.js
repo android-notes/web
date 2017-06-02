@@ -31,7 +31,7 @@ export default class MarkDown_It extends Component {
                 .use(require('markdown-it-sub'))
                 .use(require('markdown-it-imsize'))
                 .use(require('./math'))
-                // .use(require('markdown-it-footnote'))
+                .use(require('./footnote'))
         ;
         // .use(require('markdown-it-mathjax'))
         // .use(require('markdown-it-katex'))
@@ -127,7 +127,7 @@ export default class MarkDown_It extends Component {
 
 
     getTxt() {
-        return `# 欢迎使用OMD
+        return `# 欢迎使用OMD [^demo]
                 
  > Markdown是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档，然后转换成格式丰富的HTML页面。——[维基百科]
  
@@ -189,6 +189,7 @@ export default class MarkDown_It extends Component {
 - [ ] 待办事项1
 - [ ] 待办事项2
 
+#### ~~删除文本~~
 
 #### 全屏预览
 当您把鼠标移到预览窗口右上角时会出现 \`预览\` 两个字，点击即可切换预览和编辑状态
@@ -198,6 +199,9 @@ export default class MarkDown_It extends Component {
 
 ![打印设置](images/md-chrome-print.png =300x)
 
+
+
+[^demo]: 这是一个示例脚注，您可以点击后面的 << 跳转。
 `;
     }
 }

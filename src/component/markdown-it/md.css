@@ -9,11 +9,12 @@
 .edit {
     outline: none;
     font-size: 14px;
+    padding-bottom: 200%;
 }
 
 .edit-container {
     width: 50%;
-    padding: 60px 35px 200px 35px;
+    padding: 60px 35px 0 35px;
     overflow: auto;
     white-space: pre-wrap;
     word-wrap: break-word;
@@ -25,11 +26,12 @@
 
 .preview {
     width: 100%;
+    padding-bottom: 99%;
 }
 
 .preview-container {
     width: 100%;
-    padding: 5px 35px 200px 35px;
+    padding: 60px 35px 0 35px;
     overflow: auto;
     background-color: #fff;
 }
@@ -65,4 +67,12 @@
 
 .md-print {
     padding: 15px;
+}
+
+.md hr{
+    line-height: 1.6;
+    height: 0;
+    margin: 2em 0;
+    border: 0;
+    border-top: 1px solid rgba(102,128,153,0.1);
 }
